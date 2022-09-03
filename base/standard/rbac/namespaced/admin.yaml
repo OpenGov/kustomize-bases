@@ -1,0 +1,20 @@
+---
+# This CRB should be removed once all users have been transitioned
+# to using "developers" group in Teleport
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: namespace-admin
+  # Override in overlay
+  namespace: namespace
+subjects: []
+  # You can specify more than one "subject"
+  # Add groups in overlays
+  # - kind: Group
+  #   name: suite-team-env-view  # "name" is case sensitive
+  #   apiGroup: rbac.authorization.k8s.io
+roleRef:
+  # "roleRef" specifies the binding to a Role / ClusterRole
+  kind: ClusterRole  # this must be Role or ClusterRole
+  name: admin  # this must match the name of the Role or ClusterRole you wish to bind to
+  apiGroup: rbac.authorization.k8s.io

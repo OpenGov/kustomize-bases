@@ -1,0 +1,18 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: registry-docker-hub
+  namespace: UNDEFINED
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: secret-store
+    kind: SecretStore
+  target:
+    template:
+      type: kubernetes.io/dockerconfigjson
+      data:
+        .dockerconfigjson: "{{ .dockerconfigjson | toString }}"
+    name: registry-docker-hub
+    creationPolicy: Owner
+  data: []

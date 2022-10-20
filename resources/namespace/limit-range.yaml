@@ -3,7 +3,7 @@ apiVersion: v1
 kind: LimitRange
 metadata:
   name: cpu-mem-limit-range
-  namespace: OVERLAY_OVER_THIS
+  namespace: UNDEFINED
 spec:
   limits:
   - default:

@@ -1,0 +1,9 @@
+---
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+commonAnnotations:
+  team: UNDEFINED
+  department: UNDEFINED
+  suite: UNDEFINED
+  customer: UNDEFINED

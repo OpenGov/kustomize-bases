@@ -1,0 +1,24 @@
+# Pod seccomp profile should be set to runtime/default
+# Reference: https://docs.fugue.co/FG_R00495.html
+- op: add
+  path: /spec/template/metadata/annotations
+  value:
+    seccomp.security.alpha.kubernetes.io/pod: "runtime/default"
+# Service account ‘automountServiceAccountToken’ should be set to ‘false’
+# unless the workload needs to communicate via a ServiceAccount
+# Reference: https://docs.fugue.co/FG_R00484.html
+- op: add
+  path: /spec/template/spec
+  value:
+    automountServiceAccountToken: false
+
+- op: add
+  path: /spec/template/spec/containers/0/securityContext
+  value:
+    capabilities:
+      # Pods should not run containers with default capabilities assigned
+      # Reference: https://docs.fugue.co/FG_R00493.html
+      drop: ["ALL"]
+      # Pods should not run containers as the root user
+      # Reference: https://docs.fugue.co/FG_R00490.html
+    runAsNonRoot: true

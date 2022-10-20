@@ -16,6 +16,6 @@ spec:
     # make as a ratio of its limit over request.
     # This helps enforce the limit and request to be the same.
     maxLimitRequestRatio:
-      memory: 1
-      cpu: 1
+      memory: "1"
+      cpu: "1"
     type: Container

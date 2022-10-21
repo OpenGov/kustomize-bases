@@ -1,0 +1,17 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: security
+spec:
+  selector: {}
+  # FG_R00484: Service account 'automountServiceAccountToken' should be set to 'false' [Medium]
+  #           https://docs.fugue.co/FG_R00484.html
+  automountServiceAccountToken: false
+  serviceName: security
+  template:
+    metadata:
+      # FG_R00495: Pod seccomp profile should be set [Medium]
+      #           https://docs.fugue.co/FG_R00495.html
+      annotations:
+        seccomp.security.alpha.kubernetes.io/pod: "runtime/default"

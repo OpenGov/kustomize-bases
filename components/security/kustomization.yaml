@@ -1,0 +1,21 @@
+---
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+patches:
+- path: deployment.yaml
+  target:
+    group: apps
+    kind: Deployment
+- path: statefulset.yaml
+  target:
+    group: apps
+    kind: StatefulSet
+- path: securitycontext.yaml
+  target:
+    group: apps
+    kind: Deployment
+- path: securitycontext.yaml
+  target:
+    group: apps
+    kind: StatefulSet

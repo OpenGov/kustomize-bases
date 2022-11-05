@@ -12,7 +12,7 @@ spec:
     template:
       type: kubernetes.io/dockerconfigjson
       data:
-        .dockerconfigjson: "{{ .dockerconfigjson | toString }}"
+        .dockerconfigjson: "{{ .docker-hub-config | toString }}"
     name: registry-docker-hub
     creationPolicy: Owner
   data: []

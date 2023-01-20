@@ -4,6 +4,6 @@ kind: Component
 
 commonAnnotations:
   team: example
-  department: r-and-d
+  department: rnd
   suite: platform
   customer: internal

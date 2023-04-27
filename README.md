@@ -10,7 +10,7 @@ This repo contains reusable Kustomize resources which can simplify deploying com
 
 ## Contents
 
-- [limit-range](resources/namespace/README.md)
+- [namespace](resources/namespace/README.md)
 Limits CPU, memory, and storage usage for namespaces.
 
 - [external-secret-store](resources/external-secret-store/aws/README.md)

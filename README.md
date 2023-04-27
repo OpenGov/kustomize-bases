@@ -26,7 +26,7 @@ Defines common annotations useful for tagging and identifying resources. Intende
 
 Import the bases/components you need into your own Kustomize configs and overlays, patching any UNDEFINED values as described in the respective READMEs.
 
-For example, to limit resource usage and enable Docker Hub access in a namespace called example-ns:
+For example, to setup a namespace that limits resource usage and enable Docker Hub access in a namespace called example-ns:
 
 ```
 apiVersion: kustomize.config.k8s.io/v1beta1

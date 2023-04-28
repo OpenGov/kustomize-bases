@@ -1,5 +1,3 @@
-  # FG_R00495: Pod seccomp profile should be set [Medium]
-  #           https://docs.fugue.co/FG_R00495.html
 ---
 kind: StatefulSet
 apiVersion: apps/v1
@@ -11,4 +9,6 @@ spec:
   template:
     metadata:
       annotations:
+        # FG_R00495: Pod seccomp profile should be set [Medium]
+        #           https://docs.fugue.co/FG_R00495.html
         seccomp.security.alpha.kubernetes.io/pod: "runtime/default"

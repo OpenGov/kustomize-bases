@@ -6,4 +6,4 @@ framework:
 - github_actions
 quiet: true
 skip-check:
-  - CKV2_K8S_6
+- CKV2_K8S_6

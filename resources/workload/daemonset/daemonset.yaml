@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: UNDEFINED
+  namespace: UNDEFINED
+  labels:
+    k8s-app: UNDEFINED
+spec:
+  selector:
+    matchLabels:
+      name: UNDEFINED
+  template:
+    metadata:
+      labels:
+        name: UNDEFINED
+    spec:
+      containers:
+        - name: UNDEFINED
+          image: UNDEFINED:UNDEFINED
+          resources:
+            limits:
+              memory: 200Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
+      terminationGracePeriodSeconds: 30

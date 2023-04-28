@@ -1,17 +1,15 @@
+---
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  creationTimestamp: null
   name: UNDEFINED
 spec:
   jobTemplate:
     metadata:
-      creationTimestamp: null
       name: UNDEFINED
     spec:
       template:
         metadata:
-          creationTimestamp: null
         spec:
           containers:
           - image: UNDEFINED
@@ -19,4 +17,3 @@ spec:
             resources: {}
           restartPolicy: OnFailure
   schedule: '*/10 * * * *'
-status: {}

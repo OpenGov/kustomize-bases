@@ -3,8 +3,12 @@ name: Validate
 
 # yamllint disable-line rule:truthy
 on:
-  - pull_request
-  - push
+  pull_request:
+    branches:
+    - "*"
+  push:
+    branches:
+    - main
 
 jobs:
   validate:

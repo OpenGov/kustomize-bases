@@ -20,4 +20,4 @@ jobs:
     - uses: docker://ghcr.io/yannh/kubeconform:v0.6.1
       with:
         entrypoint: '/kubeconform'
-        args: "-summary ."
+        args: "-ignore-missing-schemas -schema-location default -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json' -summary components resources"

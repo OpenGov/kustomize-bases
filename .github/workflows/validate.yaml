@@ -3,23 +3,17 @@ name: Validate
 
 # yamllint disable-line rule:truthy
 on:
-  pull_request:
-    paths:
-    - 'components/**.y?ml'
-    - 'resources/**.y?ml'
-  push:
-    paths:
-    - 'components/**.y?ml'
-    - 'resources/**.y?ml'
+  - pull_request
+  - push
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-    # - name: Login to Github Packages
-    #   run: echo "${{ github.token }}" | docker login https://ghcr.io -u ${GITHUB_ACTOR} --password-stdin
+    - name: Login to Github Packages
+      run: echo "${{ github.token }}" | docker login https://ghcr.io -u ${GITHUB_ACTOR} --password-stdin
     - uses: actions/checkout@v3
-    # - uses: docker://ghcr.io/yannh/kubeconform:v0.6.1
-    #   with:
-    #     entrypoint: '/kubeconform'
-    #     args: "-summary ."
+    - uses: docker://ghcr.io/yannh/kubeconform:v0.6.1
+      with:
+        entrypoint: '/kubeconform'
+        args: "-summary ."

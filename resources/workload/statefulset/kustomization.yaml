@@ -13,3 +13,6 @@ patches:
     - op: replace
       path: /kind
       value: StatefulSet
+    - op: add
+      path: /spec/serviceName
+      value: UNDEFINED

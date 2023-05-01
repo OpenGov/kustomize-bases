@@ -23,6 +23,7 @@ jobs:
         - resources/workload/daemonset
         - resources/workload/deployment
         - resources/workload/job
+        - resources/workload/pod
         - resources/workload/replicaset
         - resources/workload/statefulset
       fail-fast: false

@@ -6,7 +6,6 @@ resources:
 - ../deployment
 
 patches:
-# Patch the UNDEFINED kind from Deployment into a DaemonSet
 - target:
     kind: Deployment
   patch: |-

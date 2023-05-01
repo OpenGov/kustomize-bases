@@ -1,6 +1,6 @@
 ---
 apiVersion: apps/v1
-kind: DaemonSet
+kind: Deployment
 metadata:
   name: UNDEFINED
   namespace: UNDEFINED
@@ -37,6 +37,10 @@ spec:
           initialDelaySeconds: 15
           periodSeconds: 20
           timeoutSeconds: 5
+        networkPolicy:
+          ports:
+          - port: 8080
+            protocol: TCP
         resources:
           limits:
             cpu: 100m

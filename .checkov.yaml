@@ -1,0 +1,9 @@
+---
+download-external-modules: false
+evaluate-variables: true
+framework:
+- kustomize
+- github_actions
+quiet: true
+skip-check:
+- CKV2_K8S_6

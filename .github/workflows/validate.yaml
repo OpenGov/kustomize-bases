@@ -1,0 +1,34 @@
+---
+name: Validate
+
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+    branches:
+    - "*"
+  push:
+    branches:
+    - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Login to Github Packages
+      run: echo "${{ github.token }}" | docker login https://ghcr.io -u ${GITHUB_ACTOR} --password-stdin
+    - uses: actions/checkout@v3
+    - name: Run Kubeconform
+      uses: docker://ghcr.io/yannh/kubeconform:v0.6.1
+      with:
+        entrypoint: '/kubeconform'
+        args: "-ignore-missing-schemas -schema-location default -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json' -summary components resources"
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run Checkov
+      uses: bridgecrewio/checkov-action@v12

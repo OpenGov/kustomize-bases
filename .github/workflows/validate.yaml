@@ -19,6 +19,10 @@ jobs:
     strategy:
       matrix:
         overlay:
+        - resources/external-secret
+        - resources/external-secret-store
+        - resources/namepsace
+        - resources/network/ingress
         - resources/network/service
         - resources/workload/cronjob
         - resources/workload/daemonset

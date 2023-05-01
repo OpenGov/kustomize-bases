@@ -2,5 +2,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-# resources:
-#   - cronjob.yaml
+resources:
+- ../deployment
+
+patches:
+# Patch the UNDEFINED kind from Deployment into a DaemonSet
+- target:
+    kind: Deployment
+  patch: |-
+    - op: replace
+      path: /kind
+      value: CronJob

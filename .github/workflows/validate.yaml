@@ -19,6 +19,11 @@ jobs:
     strategy:
       matrix:
         overlay:
+        - resources/external-secret/docker-hub
+        - resources/external-secret-store/aws
+        - resources/namespace
+        - resources/network/ingress
+        - resources/network/service
         - resources/workload/cronjob
         - resources/workload/daemonset
         - resources/workload/deployment

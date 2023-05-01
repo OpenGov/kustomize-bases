@@ -10,7 +10,13 @@ spec:
     spec:
       template:
         spec:
+          # Service account ‘automountServiceAccountToken’ should be set to ‘false’
+          # unless the workload needs to communicate via a ServiceAccount
+          # Checkov Guide: https://docs.bridgecrew.io/docs/bc_k8s_35
+          # k8s Reference: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#use-the-default-service-account-to-access-the-api-server
           automountServiceAccountToken: false
+          # Ensure that the seccomp profile is set to docker/default or runtime/default
+          # Checkov Guide: https://docs.bridgecrew.io/docs/bc_k8s_29
           securityContext:
             seccompProfile:
               type: RuntimeDefault
@@ -20,18 +26,32 @@ spec:
             command: [sleep, "10"]
             resources:
               limits:
+                # CPU limits should be set
+                # Checkov Guide: https://docs.bridgecrew.io/docs/bc_k8s_10
                 cpu: 100m
+                # Memory limits should be set
+                # Checkov Guide: https://docs.bridgecrew.io/docs/bc_k8s_12
                 memory: 200Mi
               requests:
                 cpu: 100m
                 memory: 200Mi
             securityContext:
+              # Containers should not run with allowPrivilegeEscalation
+              # Checkov Guide: https://docs.bridgecrew.io/docs/bc_k8s_19
               allowPrivilegeEscalation: false
+              # Minimize the admission of containers with capabilities assigned
+              # Checkov Guide: https://docs.bridgecrew.io/docs/bc_k8s_34
               capabilities:
                 drop:
                 - ALL
+              # Use read-only filesystem for containers where possible
+              # Checkov Guide: https://docs.bridgecrew.io/docs/bc_k8s_21
               readOnlyRootFilesystem: true
+              # Minimize the admission of root containers
+              # Checkov Guide: https://docs.bridgecrew.io/docs/bc_k8s_22
               runAsNonRoot: true
+              # Containers should run as a high UID to avoid host conflict
+              # Checkov Guide: https://docs.bridgecrew.io/docs/bc_k8s_37
               runAsUser: 10001
               runAsGroup: 10001
           restartPolicy: Never

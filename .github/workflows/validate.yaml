@@ -19,12 +19,12 @@ jobs:
     strategy:
       matrix:
         overlay:
-          - resources/workload/cronjob
-          - resources/workload/daemonset
-          - resources/workload/deployment
-          - resources/workload/job
-          - resources/workload/replicaset
-          - resources/workload/statefulset
+        - resources/workload/cronjob
+        - resources/workload/daemonset
+        - resources/workload/deployment
+        - resources/workload/job
+        - resources/workload/replicaset
+        - resources/workload/statefulset
       fail-fast: false
     steps:
     - name: Login to Github Packages

@@ -3,6 +3,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: UNDEFINED
+  namespace: UNDEFINED
 spec:
   template:
     spec:
@@ -11,24 +12,24 @@ spec:
         seccompProfile:
           type: RuntimeDefault
       containers:
-        - name: UNDEFINED
-          image: UNDEFINED@sha256:abcd1234
-          command: [sleep, "10"]
-          resources:
-            limits:
-              cpu: 100m
-              memory: 200Mi
-            requests:
-              cpu: 100m
-              memory: 200Mi
-          securityContext:
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-              - ALL
-            readOnlyRootFilesystem: true
-            runAsNonRoot: true
-            runAsUser: 10001
-            runAsGroup: 10001
+      - name: UNDEFINED
+        image: UNDEFINED@sha256:abcd1234
+        command: [sleep, "10"]
+        resources:
+          limits:
+            cpu: 100m
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 10001
+          runAsGroup: 10001
       restartPolicy: Never
   backoffLimit: 4

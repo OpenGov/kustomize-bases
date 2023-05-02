@@ -36,11 +36,17 @@ metadata:
   labels:
     # Common k8s Labels that should be defined in all resources
     # k8s Reference: https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/
+    # The name of the application
     app.kubernetes.io/name: UNDEFINED
+    # A unique name identifying the instance of an application
     app.kubernetes.io/instance: UNDEFINED
+    # The current version of the application e.g., a SemVer 1.0, revision hash, etc. (generally managed by CI/CD)
     app.kubernetes.io/version: UNDEFINED
+    # The component within the architecture
     app.kubernetes.io/component: UNDEFINED
+    # The name of a higher level application this one is part of
     app.kubernetes.io/part-of: UNDEFINED
+    # The tool being used to manage the operation of an application (generally managed by CI/CD)
     app.kubernetes.io/managed-by: UNDEFINED
 spec:
   selector:

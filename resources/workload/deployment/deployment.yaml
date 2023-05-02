@@ -99,10 +99,6 @@ spec:
           initialDelaySeconds: 15
           periodSeconds: 20
           timeoutSeconds: 5
-        networkPolicy:
-          ports:
-          - port: 8080
-            protocol: TCP
         resources:
           limits:
             # CPU limits should be set

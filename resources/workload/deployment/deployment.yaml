@@ -34,11 +34,10 @@ metadata:
     # a8r.io/dependencies: Unstructured text description of the service dependencies for humans.
   # Labels Guide: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
   labels:
-    app: UNDEFINED
     # Common k8s Labels that should be defined in all resources
     # k8s Reference: https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/
     app.kubernetes.io/name: UNDEFINED
-    # app.kubernetes.io/instance: UNDEFINED
+    app.kubernetes.io/instance: UNDEFINED
     app.kubernetes.io/version: UNDEFINED
     app.kubernetes.io/component: UNDEFINED
     app.kubernetes.io/part-of: UNDEFINED
@@ -46,11 +45,25 @@ metadata:
 spec:
   selector:
     matchLabels:
-      name: UNDEFINED
+      # Common k8s Labels that should be defined in all resources
+      # k8s Reference: https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/
+      app.kubernetes.io/name: UNDEFINED
+      app.kubernetes.io/instance: UNDEFINED
+      app.kubernetes.io/version: UNDEFINED
+      app.kubernetes.io/component: UNDEFINED
+      app.kubernetes.io/part-of: UNDEFINED
+      app.kubernetes.io/managed-by: UNDEFINED
   template:
     metadata:
       labels:
-        name: UNDEFINED
+        # Common k8s Labels that should be defined in all resources
+        # k8s Reference: https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/
+        app.kubernetes.io/name: UNDEFINED
+        app.kubernetes.io/instance: UNDEFINED
+        app.kubernetes.io/version: UNDEFINED
+        app.kubernetes.io/component: UNDEFINED
+        app.kubernetes.io/part-of: UNDEFINED
+        app.kubernetes.io/managed-by: UNDEFINED
     spec:
       # Service account ‘automountServiceAccountToken’ should be set to ‘false’
       # unless the workload needs to communicate via a ServiceAccount

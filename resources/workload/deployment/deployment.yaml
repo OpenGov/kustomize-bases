@@ -58,7 +58,6 @@ spec:
       app.kubernetes.io/version: UNDEFINED
       app.kubernetes.io/component: UNDEFINED
       app.kubernetes.io/part-of: UNDEFINED
-      app.kubernetes.io/managed-by: UNDEFINED
   template:
     metadata:
       labels:

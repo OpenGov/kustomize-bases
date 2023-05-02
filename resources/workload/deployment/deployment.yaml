@@ -5,7 +5,7 @@ metadata:
   name: UNDEFINED
   namespace: UNDEFINED
   labels:
-    k8s-app: UNDEFINED
+    app: UNDEFINED
 spec:
   selector:
     matchLabels:

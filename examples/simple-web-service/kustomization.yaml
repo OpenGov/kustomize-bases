@@ -1,0 +1,32 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- https://github.com/OpenGov/kustomize-bases//resources/namespace?ref=v1.2.3
+- https://github.com/OpenGov/kustomize-bases//resources/external-secret/docker-hub?ref=v1.2.3
+- https://github.com/OpenGov/kustomize-bases/resources/workload/deployment?ref=v1.2.3
+- https://github.com/OpenGov/kustomize-bases/resources/network/ingress?ref=v1.2.3
+- https://github.com/OpenGov/kustomize-bases/resources/network/service?ref=v1.2.3
+namespace: example
+
+images:
+- name: UNDEFINED
+  newName: enterprise-fizzbuzz
+  newTag: v2023.10.1
+
+replicas:
+- name: enterprise-fizzbuzz
+  count: 3
+
+patches:
+- path: deployment.yaml
+  target:
+    kind: Deployment
+    name: UNDEFINED
+- path: ingress.yaml
+  target:
+    kind: Ingress
+    name: UNDEFINED
+- path: service.yaml
+  target:
+    kind: Service
+    name: UNDEFINED

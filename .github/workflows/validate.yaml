@@ -19,6 +19,7 @@ jobs:
     strategy:
       matrix:
         overlay:
+        - examples/simple-web-service
         - resources/external-secret/docker-hub
         - resources/external-secret-store/aws
         - resources/namespace

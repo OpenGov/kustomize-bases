@@ -1,0 +1,19 @@
+---
+- op: replace
+  path: /metadata/name
+  value: enterprise-fizzbuzz
+- op: replace
+  path: /metadata/labels
+  value:
+    app.kubernetes.io/name: enterprise-fizzbuzz
+- op: replace
+  path: /spec/selector
+  value:
+    app.kubernetes.io/name: enterprise-fizzbuzz
+- op: replace
+  path: /spec/ports
+  value:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8700

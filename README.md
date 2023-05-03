@@ -10,17 +10,20 @@ This repo contains reusable Kustomize resources which can simplify deploying com
 
 ## Contents
 
-- [namespace](resources/namespace/README.md)
-Limits CPU, memory, and storage usage for namespaces.
+- [components/](components/)
+Components that can be used to inject additional functionality into your configuration.
 
-- [external-secret-store](resources/external-secret-store/aws/README.md)
-Sets up the infrastructure for externally managing secrets via AWS Secrets Manager.
+- [examples/](examples/)
+Examples of how you might use the bases in this repository in your own projects.
 
-- [registry-docker-hub](external-secret/registry-docker-hub/README.md)
-Enables pods to access the Docker Hub registry through dynamically generated credentials.
+- [resources/namespace](resources/namespace/)
+Provides a base for building a namespace.
 
-- [example org commonAnnotations](components/metadata/org/example/README.md)
-Defines common annotations useful for tagging and identifying resources. Intended as a template to be modified and overridden.
+- [resources/network](resources/network/)
+Bases for k8s network resources like Ingress and Services.
+
+- [resources/workload](resources/network/)
+Bases for k8s workload resources like Deployments, Jobs, and StatefulSets
 
 ## Usage
 
@@ -32,8 +35,8 @@ For example, to setup a namespace that limits resource usage and enable Docker H
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 bases:
-- https://github.com/OpenGov/kustomize-bases/tree/vX.Y.Z/limit-range
-- https://github.com/OpenGov/kustomize-bases/tree/vX.Y.Z/registry-docker-hub
+- https://github.com/OpenGov/kustomize-bases//resources/namespace?ref=v1.2.3
+- https://github.com/OpenGov/kustomize-bases//resources/external-secret/docker-hub?ref=v1.2.3
 namespace: example-ns
 resources:
 - deployment.yaml
@@ -44,11 +47,11 @@ resources:
 
 Feel free to contact us for any issues or questions regarding these shared Kustomize resources. We're happy to help you get started utilizing them for your Kubernetes projects!
 
-We do not provide long-term support for directly using resources from this repo without modification. Resources are designed as templates to be customized based on your unique environment and needs.
+However, we do not provide direct support for using resources from this repo. Resources are designed as templates to be customized based on your unique environment and needs. You assume all risks and liability that may result from using these configurations. More details can be found in the [LICENSE](LICENSE) file.
 
 ## License
 
-This project is licensed under the Apache 2.0 License - see the LICENSE file for details
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details
 
 ## Proprietary Information
 

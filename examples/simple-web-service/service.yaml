@@ -9,8 +9,7 @@
 - op: replace
   path: /spec/selector
   value:
-    matchLabels:
-      app.kubernetes.io/name: enterprise-fizzbuzz
+    app.kubernetes.io/name: enterprise-fizzbuzz
 - op: replace
   path: /spec/ports
   value:

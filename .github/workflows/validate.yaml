@@ -42,12 +42,12 @@ jobs:
       uses: docker://ghcr.io/yannh/kubeconform:v0.6.1
       with:
         entrypoint: '/kubeconform'
-        args: "-ignore-missing-schemas -schema-location default -summary ${{ matrix.overlay }}/rendered.yaml"
+        args: "-strict -ignore-missing-schemas -schema-location default -summary ${{ matrix.overlay }}/rendered.yaml"
     - name: Run Kubeconform (CRDs)
       uses: docker://ghcr.io/yannh/kubeconform:v0.6.1
       with:
         entrypoint: '/kubeconform'
-        args: "-ignore-missing-schemas -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json' -summary ${{ matrix.overlay }}/rendered.yaml"
+        args: "-strict -ignore-missing-schemas -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json' -summary ${{ matrix.overlay }}/rendered.yaml"
     - name: Run Checkov
       uses: bridgecrewio/checkov-action@v12
       with:

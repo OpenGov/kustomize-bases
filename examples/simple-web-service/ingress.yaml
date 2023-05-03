@@ -1,0 +1,24 @@
+---
+- op: replace
+  path: /metadata/name
+  value: enterprise-fizzbuzz
+- op: add
+  path: /metadata/annotations
+  value:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'
+- op: replace
+  path: /spec/ingressClassName
+  value: nginx
+- op: replace
+  path: /spec/rules
+  value:
+  - host: fizzbuzz.example.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: enterprise-fizzbuzz
+            port:
+              name: http
+        path: /
+        pathType: ImplementationSpecific

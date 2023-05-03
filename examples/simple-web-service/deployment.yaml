@@ -1,0 +1,53 @@
+---
+- op: replace
+  path: /metadata/name
+  value: enterprise-fizzbuzz
+- op: replace
+  path: /metadata/labels
+  value:
+    app.kubernetes.io/name: enterprise-fizzbuzz
+- op: replace
+  path: /spec/selector/matchLabels
+  value:
+    app.kubernetes.io/name: enterprise-fizzbuzz
+- op: replace
+  path: /spec/template/metadata/labels
+  value:
+    app.kubernetes.io/name: enterprise-fizzbuzz
+- op: replace
+  path: /spec/template/spec/containers/0/name
+  value: enterprise-fizzbuzz
+- op: add
+  path: /spec/template/spec/imagePullSecrets
+  value:
+    - name: registry-docker-hub
+- op: add
+  path: /spec/template/spec/containers/0/ports
+  value:
+    - name: http
+      containerPort: 8700
+- op: replace
+  path: /spec/template/spec/containers/0/resources
+  value:
+    requests:
+      cpu: 100m
+      memory: 300Mi
+    limits:
+      cpu: 100m
+      memory: 300Mi
+- op: replace
+  path: /spec/template/spec/containers/0/livenessProbe/httpGet
+  value:
+    port: 8700
+    path: /health/liveness
+- op: replace
+  path: /spec/template/spec/containers/0/readinessProbe/httpGet
+  value:
+    port: 8700
+    path: /health/readiness
+- op: replace
+  path: /spec/template/spec/containers/0/securityContext/runAsUser
+  value: 65534
+- op: replace
+  path: /spec/template/spec/containers/0/securityContext/runAsGroup
+  value: 65534

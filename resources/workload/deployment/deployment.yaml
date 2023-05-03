@@ -128,4 +128,4 @@ spec:
           # Checkov Guide: https://docs.bridgecrew.io/docs/bc_k8s_37
           runAsUser: 10001
           runAsGroup: 10001
-    terminationGracePeriodSeconds: 30
+      terminationGracePeriodSeconds: 30

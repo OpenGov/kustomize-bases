@@ -18,4 +18,4 @@ spec:
     # maxLimitRequestRatio:
     #   memory: "1"
     #   cpu: "1"
-    # type: Container
+    type: Container
